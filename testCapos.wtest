@@ -1,1 +1,44 @@
-r
+import capos.*
+describe "rolando" {
+    test "Encontrar cosas" {
+        rolando.encontrar(espada)
+        rolando.encontrar(libro)
+        rolando.encontrar(collar)
+        //assert.equals(2, rolando.mochila().size()) No es lo ideal porque devuelve la cantidad y no los objetos.
+        assert.equals( #{espada, libro}, rolando.mochila()) //Lista [1,2,3] , Set #{1,2,3}
+    }
+
+    test "Ir al castillo" {
+        rolando.encontrar(espada)
+        rolando.encontrar(libro)
+        rolando.llegarAHogar()
+        assert.that(rolando.mochila().isEmpty())
+        assert.equals(#{espada, libro}, castillo.cofre())
+        rolando.encontrar(collar)
+        rolando.llegarAHogar()
+    }
+
+    test "Posesiones" {
+        castillo.cofre(#{collar, espada})
+        rolando.mochila(#{armadura})
+        assert.equals(#{collar, espada, armadura}, rolando.posesiones())
+        assert.notThat(rolando.posee(libro))
+        assert.that(rolando.posee(armadura))
+        assert.that(rolando.posee(espada))
+        assert.that(rolando.posee(collar))
+    }
+
+    test "Orden de los artefactos" {
+      rolando.encontrar(espada)
+      rolando.encontrar(libro)
+      rolando.encontrar(collar)
+      rolando.llegarAHogar()
+      rolando.encontrar(armadura)
+      rolando.encontrar(collar)
+      assert.equals([espada, libro, collar, armadura, collar], rolando.historial())
+
+      //Cual es el artefacto que se encontró por 3ra vez
+
+      assert.equals(armadura, rolando.artefactoEnHistorial(3))
+    }
+}

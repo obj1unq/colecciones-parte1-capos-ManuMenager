@@ -14,8 +14,7 @@ Para la primera versión, existen 4 artefactos:
 - Armadura de acero valyrio
 
 Al principio Rolando solo puede llevar hasta 2 artefactos a la vez, 
-pero se espera que a medida que se desarrolla el juego pueda incrementar 
-su capacidad.
+pero se espera que a medida que se desarrolla el juego pueda incrementar su capacidad.
 
 Cada vez que rolando se encuentra con un artefacto, y tiene capacidad para llevarlo, lo levanta. 
 
